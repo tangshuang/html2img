@@ -1,0 +1,76 @@
+{
+	"name": "html2image",
+	"version": "0.0.1",
+	"type": "bower",
+	"build": [
+		{
+			"from": "src/script/index.js",
+			"to": "dist/js/[name]-[version].js",
+			"options": {
+				"minify": true,
+				"sourcemap": true,
+				"vendors": false,
+				"hashfile": true
+			},
+			"settings": {}
+		},
+		{
+			"from": "src/style/index.scss",
+			"to": "dist/css/[name]-[version].css",
+			"options": {
+				"minify": true,
+				"sourcemap": true,
+				"vendors": false,
+				"hashfile": true
+			},
+			"settings": {
+        "sass": {},
+    		"postcss": {},
+    		"nextcss": {},
+    		"assets": {}
+      }
+		}
+	],
+	"preview": {
+		"dir": ".preview_tmp",
+		"script": {
+			"from": "preview/index.js",
+			"options": {
+				"minify": false,
+				"sourcemap": true,
+        		"vendors": false
+			},
+			"settings": {}
+		},
+		"style": {
+			"from": "preview/index.scss",
+			"options": {
+				"minify": false,
+				"sourcemap": true,
+        		"vendors": false
+			},
+			"settings": {}
+		},
+		"index": {
+			"from": "preview/index.html"
+		},
+		"watch": [
+			"preview/index.html",
+			"preview/index.js",
+			"preview/index.scss",
+			"src/**/*.js",
+			"src/**/*.scss"
+		],
+		"server": "preview/server.js"
+	},
+	"test": {
+		"entry": {
+			"from": "test/specs/index.js",
+			"settings": {}
+		},
+		"exclude": [],
+		"reporters": "test/reporters",
+		"debug": false,
+		"browsers": ["PhantomJS"]
+	}
+}

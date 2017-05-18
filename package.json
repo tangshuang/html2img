@@ -1,0 +1,29 @@
+{
+  "name": "html2image",
+  "version": "0.0.1",
+  "description": "html2image",
+  "main": "src/script/index.js",
+  "scss": "src/style/index.scss",
+  "scripts": {},
+  "keywords": [
+    "componer"
+  ],
+  "author": "componer",
+  "dependencies": {
+    "html2canvas": "latest",
+    "downloadjs": "1.4.7",
+    "copy-to-clipboard": "3.0.6"
+  },
+  "devDependencies": {
+    "es6-promise-polyfill": "1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/componer/html2image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/componer/html2image/issues"
+  },
+  "homepage": "https://github.com/componer/html2image#readme",
+  "license": "ISC"
+}
