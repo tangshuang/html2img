@@ -11,8 +11,7 @@
   "author": "componer",
   "dependencies": {
     "html2canvas": "latest",
-    "downloadjs": "1.4.7",
-    "copy-to-clipboard": "3.0.6"
+    "downloadjs": "1.4.7"
   },
   "devDependencies": {
     "es6-promise-polyfill": "1.2.0"
