@@ -1,5 +1,5 @@
 import {Promise} from 'es6-promise-polyfill'
-import Html2img from '../src/script/index'
+import Html2img from '../src/index'
 
 window.Promise = Promise
 
