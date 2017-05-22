@@ -1,28 +1,27 @@
 {
-  "name": "html2image",
+  "name": "html2img",
   "version": "0.0.1",
-  "description": "html2image",
-  "main": "src/script/index.js",
-  "scss": "src/style/index.scss",
+  "description": "html2img",
+  "main": "dist/html2img.js",
   "scripts": {},
   "keywords": [
     "componer"
   ],
-  "author": "componer",
+  "author": "tangshuang",
   "dependencies": {
     "html2canvas": "latest",
-    "downloadjs": "1.4.7"
+    "downloadjs": "^1.4.7"
   },
   "devDependencies": {
-    "es6-promise-polyfill": "1.2.0"
+    "es6-promise-polyfill": "^1.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/componer/html2image.git"
+    "url": "git+https://github.com/tangshuang/html2img.git"
   },
   "bugs": {
-    "url": "https://github.com/componer/html2image/issues"
+    "url": "https://github.com/tangshuang/html2img/issues"
   },
-  "homepage": "https://github.com/componer/html2image#readme",
+  "homepage": "https://github.com/tangshuang/html2img#readme",
   "license": "ISC"
 }

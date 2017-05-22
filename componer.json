@@ -1,34 +1,22 @@
 {
-	"name": "html2image",
+	"name": "html2img",
 	"version": "0.0.1",
-	"type": "bower",
+	"type": "npm",
 	"build": [
 		{
-			"from": "src/script/index.js",
-			"to": "dist/js/[name]-[version].js",
+			"from": "src/index.js",
+			"to": "dist/[name].js",
 			"options": {
 				"minify": true,
 				"sourcemap": true,
 				"vendors": false,
-				"hashfile": true
-			},
-			"settings": {}
-		},
-		{
-			"from": "src/style/index.scss",
-			"to": "dist/css/[name]-[version].css",
-			"options": {
-				"minify": true,
-				"sourcemap": true,
-				"vendors": false,
-				"hashfile": true
+				"hashfile": false
 			},
 			"settings": {
-        "sass": {},
-    		"postcss": {},
-    		"nextcss": {},
-    		"assets": {}
-      }
+				"output": {
+					"library": "[name]"
+				}
+			}
 		}
 	],
 	"preview": {
@@ -58,8 +46,7 @@
 			"preview/index.html",
 			"preview/index.js",
 			"preview/index.scss",
-			"src/**/*.js",
-			"src/**/*.scss"
+			"src/**/*.js"
 		],
 		"server": "preview/server.js"
 	},

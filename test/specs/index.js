@@ -1,6 +1,6 @@
-import Html2image from '../../src/script/index'
+import Html2img from '../../src/script/index'
 
-describe('Html2image', () => {
+describe('Html2img', () => {
     it('test', () => {
         // write code ...
     })
