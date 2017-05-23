@@ -1,32 +1,45 @@
-export function getComputedStyleString(el, pe = null) {
-    var computedStyles = window.getComputedStyle(el, pe)
-    var stylesText = computedStyles.cssText
-    return stylesText
+export function getComputedStyleString(el, pseudo = null, options = {}) {
+    var computedStyles = window.getComputedStyle(el, pseudo)
+    var classNames = options.classNames || []
+    var cssText = ''
+    var styleText = el.style.cssText
+    classNames.forEach(item => {
+        let style = computedStyles.getPropertyValue(item)
+        cssText += ';' + item + ':' + style
+    })
+    return styleText + cssText
 }
 
-export function getStyledElement(el) {
-    var element = el.cloneNode()
-    var stylesText = getComputedStyleString(el)
-    element.style.cssText = stylesText
-    var beforeStylesText = getComputedStyleString(el, ':before')
-    var before = document.createElement('span')
-    before.style.cssText = beforeStylesText
-    element.insertBefore(before, el.firstChild)
-    var afterStylesText = getComputedStyleString(el, ':after')
-    var after = document.createElement('span')
-    after.style.cssText = afterStylesText
-    element.appendChild(before)
-    return element
-}
+export function buildStyledElement(el, options) {
+    var defaultStylesText = el.style.cssText
+    var stylesText = getComputedStyleString(el, null, options)
+    el.style.cssText = stylesText
+    el.setAttribute('default-style', defaultStylesText)
 
-export function getStyledNode(el) {
-    var cloned = el.cloneNode(true)
-    if(cloned.children.length > 0) {
-        cloned.children = cloned.children.map(element => getStyledNode(element))
+    if(options.pseudo) {
+        var beforeStylesText = getComputedStyleString(el, ':before', options)
+        var before = document.createElement('span')
+        before.className = 'pseudo-element'
+        before.style.cssText = beforeStylesText
+        el.insertBefore(before, el.firstChild)
+
+        var afterStylesText = getComputedStyleString(el, ':after', options)
+        var after = document.createElement('span')
+        after.className = 'pseudo-element'
+        after.style.cssText = afterStylesText
+        el.appendChild(after)
     }
-    return getStyledElement(cloned)
 }
 
-export function getStyledHtml(el) {
-    return getStyledNode(el).outerHTML
+export function buildStyledDOM(el, options) {
+    if(el.children.length > 0) for(let i = 0, len = el.children.length; i < len; i ++) {
+        let child = el.children[i]
+        buildStyledDOM(child, options)
+    }
+    buildStyledElement(el, options)
+}
+
+export function getStyledHtml(el, options) {
+    buildStyledDOM(el, options)
+    return el.outerHTML
 }

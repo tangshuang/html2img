@@ -58,6 +58,19 @@ Canvas width, not layer with. Layer with is the same with your element's width. 
 
 Canvas height, same logic with width.
 
+**pseudo**
+
+Boolean. Whether to replace `:before` and `:after` as a `span` tag. If `false`, IGNORE pseudo elements.
+
+**classNames**
+
+Array. classes which to pick up from computed styles.
+Default: `['background-color','box-sizing','color','display','font-family','font-size','line-height','overflow-x','overflow-y','shape-rendering','text-size-adjust','opacity','text-anchor','stroke','stroke-width','fill']`, you can pass new to replace it.
+
+**backgroundColor**
+
+Canvas background color. Default: `#ffffff`
+
 ## Methods/API
 
 ### Html2Img.save(el, options)
