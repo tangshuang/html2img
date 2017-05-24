@@ -71,6 +71,10 @@ Default: `['background-color','box-sizing','color','display','font-family','font
 
 Canvas background color. Default: `#ffffff`
 
+**svgElements**
+
+svg tag names, such as `svg` `g` `path` `rect` `text` ...
+
 ## Methods/API
 
 ### Html2Img.save(el, options)
