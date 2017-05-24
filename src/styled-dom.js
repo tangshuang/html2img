@@ -8,7 +8,7 @@ export function getComputedCssText(el, options = {}) {
     var cssText = ''
     classNames.forEach(property => {
         let value = computedStyles.getPropertyValue(property)
-        // value = value.replace(`"`, `'`)
+        value = value.replace(`"`, `'`)
         cssText += property + ':' + value + ';'
     })
     if(defaultCssText !== '' && defaultCssText !== cssText) {

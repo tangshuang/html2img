@@ -32,11 +32,9 @@ export default class Html2img {
             // 'transform',
             // 'transform-origin',
         ]
-        el.querySelectorAll('svg').forEach(svg => {
-            buildStyledDOM(svg, {
-                classNames,
-                pseudo: options.pseudo,
-            })
+        buildStyledDOM(el, {
+            classNames,
+            pseudo: options.pseudo,
         })
         // background-color
         let bgDefault = el.style.backgroundColor
