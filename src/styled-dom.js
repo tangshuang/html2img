@@ -1,4 +1,4 @@
-import {getFontFace} from './font-face'
+// import {getFontFace} from './font-face'
 
 export function getComputedCssText(el, options = {}) {
     var pseudo = options.pseudo || null
@@ -17,36 +17,36 @@ export function getComputedCssText(el, options = {}) {
     return cssText
 }
 
-export function buildStyledSvg(el, options) {
-    var fontFamilys = []
-    var textElements = el.querySelectorAll('text')
-    textElements.forEach(item => {
-        let textComputedStyles = window.getComputedStyle(item, null)
-        let familys = textComputedStyles.getPropertyValue('font-family')
-        familys = familys.split(',')
-        if(familys.length === 0) return
-        familys.forEach(item => {
-            let name = item.trim().replace(/"|'/g, '')
-            let cssText = getFontFace(name)
-            if(cssText) {
-                fontFamilys.push(cssText)
-            }
-        })
-    })
-
-    if(fontFamilys.length === 0) return
-
-    var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs')
-    el.insertBefore(defs, el.firstElementChild)
-
-    var style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
-    style.setAttribute('type', 'text/css')
-    defs.appendChild(style)
-
-    var styleTextContent = fontFamilys.join('')
-    var styleTextNode = document.createTextNode(styleTextContent)
-    style.append(styleTextNode)
-}
+// export function buildStyledSvg(el, options) {
+//     var fontFamilys = []
+//     var textElements = el.querySelectorAll('text')
+//     textElements.forEach(item => {
+//         let textComputedStyles = window.getComputedStyle(item, null)
+//         let familys = textComputedStyles.getPropertyValue('font-family')
+//         familys = familys.split(',')
+//         if(familys.length === 0) return
+//         familys.forEach(item => {
+//             let name = item.trim().replace(/"|'/g, '')
+//             let cssText = getFontFace(name)
+//             if(cssText) {
+//                 fontFamilys.push(cssText)
+//             }
+//         })
+//     })
+//
+//     if(fontFamilys.length === 0) return
+//
+//     var defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs')
+//     el.insertBefore(defs, el.firstElementChild)
+//
+//     var style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
+//     style.setAttribute('type', 'text/css')
+//     defs.appendChild(style)
+//
+//     var styleTextContent = fontFamilys.join('')
+//     var styleTextNode = document.createTextNode(styleTextContent)
+//     style.append(styleTextNode)
+// }
 
 export function buildStyledElement(el, options) {
     var defaultCssText = el.style.cssText
@@ -55,9 +55,9 @@ export function buildStyledElement(el, options) {
     var stylesText = getComputedCssText(el, options)
     el.style.cssText = stylesText
 
-    if(el.tagName === 'svg') {
-        buildStyledSvg(el, options)
-    }
+    // if(el.tagName === 'svg') {
+    //     buildStyledSvg(el, options)
+    // }
 
     var svgElements = options.svgElements || ['svg', 'g', 'path', 'line', 'circle', 'rect', 'text', 'tspan', 'style']
     if(options.pseudo && svgElements.indexOf(el.tangName) === -1) {
