@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas'
 import download from 'downloadjs'
-// import {buildStyledDOM} from './styled-dom'
+import {buildStyledDOM} from './styled-dom'
 
 export default class Html2img {
     static canvas(el, options, factory) {
@@ -12,30 +12,30 @@ export default class Html2img {
         let filetype = 'image/' + type
 
         // build styles
-        // let classNames = options.classNames || [
-        //     'background-color',
-        //     'box-sizing',
-        //     'color',
-        //     'display',
-        //     'font-family',
-        //     'font-size',
-        //     'line-height',
-        //     'overflow-x',
-        //     'overflow-y',
-        //     'opacity',
-        //     'shape-rendering',
-        //     'text-anchor',
-        //     'text-size-adjust',
-        //     'stroke',
-        //     'stroke-width',
-        //     'fill',
-        //     // 'transform',
-        //     // 'transform-origin',
-        // ]
-        // buildStyledDOM(el, {
-        //     classNames,
-        //     pseudo: options.pseudo,
-        // })
+        let classNames = options.classNames || [
+            'background-color',
+            'box-sizing',
+            'color',
+            'display',
+            'font-family',
+            'font-size',
+            'line-height',
+            'overflow-x',
+            'overflow-y',
+            'opacity',
+            'shape-rendering',
+            'text-anchor',
+            'text-size-adjust',
+            'stroke',
+            'stroke-width',
+            'fill',
+            // 'transform',
+            // 'transform-origin',
+        ]
+        buildStyledDOM(el, {
+            classNames,
+            pseudo: options.pseudo,
+        })
 
         // background-color
         let bgDefault = el.style.backgroundColor

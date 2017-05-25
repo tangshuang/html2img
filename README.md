@@ -5,7 +5,7 @@ A module to download or copy a html element as an image in browser, without back
 ## Install
 
 ```
-npm install --save html2img
+npm install --save https://msstash.morningstar.com/scm/~ttang/html2img.git#fe
 ```
 
 ## Usage

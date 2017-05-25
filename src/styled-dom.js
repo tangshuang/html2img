@@ -17,7 +17,7 @@ export function getComputedCssText(el, options = {}) {
     return cssText
 }
 
-// export function buildStyledSvg(el, options) {
+// export function buildSvgFontFace(el, options) {
 //     var fontFamilys = []
 //     var textElements = el.querySelectorAll('text')
 //     textElements.forEach(item => {
@@ -56,7 +56,7 @@ export function buildStyledElement(el, options) {
     el.style.cssText = stylesText
 
     // if(el.tagName === 'svg') {
-    //     buildStyledSvg(el, options)
+    //     buildSvgFontFace(el, options)
     // }
 
     var svgElements = options.svgElements || ['svg', 'g', 'path', 'line', 'circle', 'rect', 'text', 'tspan', 'style']
